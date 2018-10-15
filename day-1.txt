@@ -1,0 +1,23 @@
+2018.10.15
+
+[내용정리]
+  
+  <함수형 언어>
+	- scala (java와 유사, jvm 상에서 구동됨, 다만 문법이 난해)
+	- python
+	- javascript (웹 특화)
+	- swift (ios 개발용)
+
+  <Python의 특징>
+	- 객체 지향 대비 data 분석, 전처리 등이 용이
+	- 라이브러리 다양: 오픈소스 기여자 다수
+	- Python 후 Scala로 넘어가려면 학습이 필요 (Spark 상에서 사용하려면 Scala가 native)
+
+  <4차 산업혁명>
+	- 비즈니스 모델
+	- 데이터 분석
+	- AI
+	- IoT
+	- Block Chain
+
+번외) Blockchain 구현 위해서는 "이더리움 핵심! 솔리디티 프로그래밍" 수강 필요 (dApp 구현, 2 day)

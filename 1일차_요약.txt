@@ -36,3 +36,5 @@
   3. IPython 소개
 	- jupyter qtconsole도 있긴 함 (REPL 방식이랑 차이 x)
 	- 아나콘다 설치 시 Spyder 설치되어 통합개발환경 사용 가능
+	- user\.jupyter\custom\custom.css 로 노트북 템플릿 변경 가능
+	- %(명령어): IPython의 매직 명령어

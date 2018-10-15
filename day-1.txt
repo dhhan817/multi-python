@@ -13,7 +13,7 @@
 	- 라이브러리 다양: 오픈소스 기여자 다수
 	- Python 후 Scala로 넘어가려면 학습이 필요 (Spark 상에서 사용하려면 Scala가 native)
 
-  <4차 산업혁명>
+  <트렌드 - 4차 산업혁명>
 	- 비즈니스 모델
 	- 데이터 분석
 	- AI
@@ -24,4 +24,15 @@
 
 
   1. 시작하기 전에
-	- 교재 참고
+	- 상세내용은 교재 참고
+	- 웹 크롤링 일부는 다룰 예정: 내년에 강좌 따로 개설될 예정
+	- DB: RDBMS, NoSQL (여기서는 MongoDB: json 입출력정도)
+	- 사용 프로그램 및 라이브러리: Python, numpy, ☆pandas, (시각화)matplotlib (+ seaborn, folium)
+	- 데이터 획득방식: file download, OpenAPI(OAuth를 활용, BeautifulSoup X), WebCrawling
+	- Anaconda 설치 (또는 Miniconda): tweepy, pymongo, googlemaps, seaborn, folium, tqdm 사용
+	- 아나콘다 라이브러리 Lib 폴더 내에 있음
+	- tqdm: jupyter 에서의 progress bar 출력
+
+  3. IPython 소개
+	- jupyter qtconsole도 있긴 함 (REPL 방식이랑 차이 x)
+	- 아나콘다 설치 시 Spyder 설치되어 통합개발환경 사용 가능

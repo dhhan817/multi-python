@@ -38,3 +38,78 @@
 	- 아나콘다 설치 시 Spyder 설치되어 통합개발환경 사용 가능
 	- user\.jupyter\custom\custom.css 로 노트북 템플릿 변경 가능
 	- %(명령어): IPython의 매직 명령어
+
+  <파이썬 기본1>
+	- 하위호환성 x: java와는 다르게 버전 교체에 따라 함수 하위호환 X
+	  - 2.x 와 3.x 차이
+	    - print가 함수로 변경
+	    - 'int / int'의 결과가 float로 처리
+	    - String, Unicode 체계 변경
+	    - long  자료형이 int로 통일
+	- 특징
+	  - 들여쓰기
+	  - 인코딩: cp949(euc-kr에서 빠진 글자가 들어간 확장인코딩), utf-8 ex) #-*- coding: utf-8 -*-
+
+  <파이썬 기본2>
+	- 식별자
+
+	- 수치형
+	  - int, long, float, complex
+	  - 0o: 8진수
+	  - 0b: 2진수
+	  - 0x: 16진수
+
+	- 예약어
+	  - as: alias의 준말, import 할때 주로 사용
+	  - assert
+	  - except: catch 같은 기능
+	  - global: 전역변수 선언
+	  - in: for (A) in (B) 의 형식으로 사용 (※scala 형식: for (a) <- (b) \n ~~~~ \n yield)
+	        for comprehension (for 내장 / list 내장)
+	  - lambda: 익명 함수 (anonymous function) / 다른 언어에서는 => 로 표시
+	  - raise: exception 을 발생
+	  - try with resource
+
+	- 데이터 타입
+	  - import types로 확인 가능
+	  - 여러줄로 문자열을 묶어야 한다면 """ 을 활용
+	  - 특수문자는 \를 활용 (RegExp)
+
+※ 번외 - Python 기본 문구 대신 panda를 사용하는 이유
+1. 더 빠름
+2. 코드 재생산성 좋음
+
+	  - 리스트 (코드 참고): [], list()
+	  - 세트: {} / set()
+	  - 튜플: 리스트와 유사, () / tuple(), 변경불가 / 읽기전용, 속도가 빠르다
+		  함수에서 하나 이상의 값 리턴하더라도 tuple 형태로 제공
+	  - 딕셔너리: 키와 값의 쌍 / Java에서는 dict -> map으로 변경됨
+		      [key: value], dict(key, value)
+	  - 리스트, 세트, 튜플, 딕셔너리는 혼재되어 사용할 수 있음
+	  - 불리언: True, False
+	
+	- 연산자: // (modular operator), ** (power operator), % (remainder operator)
+		  (bit operators) <<, >> (비트의 승수를 올리고/내리고), &, ^, |
+
+  <파이썬 기본3>
+	- 함수
+	  - 메모리에 함수 객체가 생성
+	  - 함수 객체를 가리키는 레퍼런스가 생성
+	  - First Class Value (1급 계층값)
+	  - 함수를 다른 함수의 인자값(매개변수, parameter)으로 활용가능
+	  - 함수를 return할 수 있다
+	  - 함수를 value 에 할당 가능 (함수 레퍼런스를 통해서 함수 사용 가능하기 때문)
+	  (※ 순수 함수형 언어: Lisp, haskell)
+	  - (Input) => (Function1) => (output) => (Function2) => (output)
+	  - HOF (High Order Function, 고차함수), Combinator
+	  - 외부변수의 값 등을 변경하는 side effect를 없애기 위하여 immutable value를 사용
+	  - Scoping Rule을 따라감 (Local Scope -> Global Scope -> Built-in Scope
+	  - 기본인수 설정 가능 (parameter의 default 값)
+		주의) 기본인자값을 활용하는인자 뒤에 기본값이 없는 인자를 활용할 수 없음
+	  - 이미 설정된 인수 순서와 상관없이, 키워드 인수로 호출(인수이름으로 호출) 가능하다
+	  - 가변인수 리스트도 가능함 (*args)
+	  - 정의되지 않은 인수: **를 사용하면 정의되지 않은 인수를 사전형식으로 전달
+	  - 람다 함수: 이름이 없음. 함수 객체만 존재. return 쓰면 에러. 함수를 인수로 넘겨줄 때 많이 씀
+	  - 재귀적으로 호출 가능
+	  - iterator 사용 가능
+	  - Generator 사용 가능 (with 'yield'): for 문 내에서 함수 객체를 그대로 유지

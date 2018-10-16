@@ -111,7 +111,7 @@
 	    r: 읽기 모드 (기본값)
 	    w: 쓰기 모드
 	    a: 쓰기 + 이어쓰기 모드
-	    r+: 읽기 + 쓰기 모드
+	    +: 읽기 + 쓰기 모드
 	    b: 바이너리 모드
 	    t: 텍스트 모드
 	  - 파이썬 REPL
@@ -163,6 +163,21 @@
 	  - eye, identity
 	  - 자료형은 c나 fortran과 유사: 32, 64, 128....
 	  - astype으로 dtype 변경 가능 (기존타입과 같더라도 새 배열을 생성, 복사)
+
 	  - 스칼라: 상수값처럼 생각해도 됨 / 크기만 가지고 있는 값
 	  - 벡터: 수의 순서쌍이라고도 생각해도 됨 / 방향과 크기를 가지고 있는 값 (따라서 순서도 존재)
 		  차원이 다르면 벡터 간 연산이 불가능
+	  - (vector) + (vector): add elementwise
+	  - (vector) * (scalar): elementwise multiplication
+	  - sum( (vector) * (vector) ): Inner product (Dot product)
+
+	  - 행렬(Matrix): 벡터의 모음
+	  - 행렬 내적: 행렬의 곱, 벡터의 내적과 연관 (행벡터와 열벡터의 내적)
+	    np.dot( (matrix), (matrix) )
+
+	  - 인덱싱과 슬라이싱: 1차원 배열은 파이썬 리스트와 유사
+			       ★slice는 원본 배열의 뷰이므로 뷰에 대한 변경은 원본에 그대로 반영
+			       ★복사본이 필요한 경우 arr[5:8].copy()
+	  - axis = 1: column 
+	  - axis = 0: row
+	  - arr[0][0] == arr[0,0]

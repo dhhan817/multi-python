@@ -1,0 +1,6 @@
+numpy½Ç½À1.txt
+
+arr1 = np.array([ [1,2,3], [4,5,6]], dtype=np.float64)
+arr2 = np.array([ [7,8,9], [10,11,12]], dtype=np.float64)
+
+names = np.array(["pyo", "sunyoung", "psy", "pyo", "sunyoung", "sunny", "sunyoung"])

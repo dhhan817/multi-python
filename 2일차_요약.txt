@@ -1,0 +1,168 @@
+2018.10.16
+
+[내용정리]
+
+  <파이썬 기본4>
+	- if, elif, else
+	- while
+	- for
+	- break, continue, else
+	- 리스트 내장
+	- 제어문과 관련된 유용한 내장 함수
+
+	- '들여쓰기' 규칙은 반드시 준수 필요
+	- if: 조건식 평가, 참인 경우 구문 수행
+	  if <조건문> :
+	    <구문>
+	- elif: 2개 이상의조건 처리, 필요한 만큼 사용 가능
+	- else: 어떠한 조건에도 해당하지 않는 경우, 가장 마지막에만 사용 가능
+	  if <조건식1> :
+	    <구문1>
+	  elif <조건식2> :
+	    <구문2>
+	  else :
+	    <구문3>
+	- 조건식에 약식형 지원 (ex. 90 <= A <= 100)
+
+	- 0, 0.0, (), [], {}, "", None은 False
+	- and / or
+		- ★and와 or는 다른 스코어의 &&, || 와 동일
+		- ★short-circuit 형식으로 가장 필요한 만큼만 구문 평가 이루어짐
+	- & / |
+		- ★& 과 | 의 전후 모든 평가식을 평가함
+
+	- while 문
+		- while 과 else 모두 사용 가능
+
+	- for 문
+		for <아이템I> in <시퀀스형 객체 S>:
+		  <구문>
+		- 시퀀스형 객체 S의 각 아이템을 아이템 I에 할당
+		- 문자열, 리스트, 튜플를 사용가능
+		- 이터레이터, 제너레이터 객체를 사용가능
+	- break
+	- continue: continue 다음 내부 블록을 수행하지 않고 다음 반복으로 진행
+
+	- ★list comprehension
+		- <표현식> for <아이템> in <시퀀스 객체> (if <조건식>)
+
+	- range
+
+	- filter
+		- filter ( <function> | None, 시퀀스 객체)
+		- 함수의 결과 값이 참인 시퀀스 객체의 이터레이터를 반환
+		- None이 오는 경우 필터링하지 않음
+		- 함수가 함수를 객체로 받는 고차함수 형태 (HOF)
+
+  <파이썬 기본5>
+	- ★ 사용자 정의 모듈
+	  - I. 모듈작성 (~.py) : anaconda 밑 Lib 안의 py 파일을 통해서도 확인가능
+	  - II. 작성된 모듈을 [PYTHON_HOME directory]\lib 밑에 두거나,
+	        환경변수인 [PYTHONPATH]에 지정
+	  - III. 모듈을 사용하고자 하는 코드에서 import <모듈명> 한 후,
+	         <모듈명>.<functionname>() 로 사용
+	  참고) dir(<모듈명>)으로 모듈 내의 함수들 전체 확인 가능
+
+	- import의 우선순위
+	  I. 현재 작업 directory
+	  II. 환경변수 PYTHONPATH에 구현된 directory
+	  III. 표준 라이브러리 directory
+	  IV. 서드파티 라이브러리 directory
+	  => 동일한 명의 라이브러리가 있으면 위 우선순위를 따라서 import됨
+	
+	- pip를 통해 install한 모듈들은 lib\site-packages 쪽에 존재
+	  (망분리 환경 시 로컬에서 해당 폴더 내 폴더만 옮겨가면 됨)
+
+	- pydoc moudles: 사용가능한 모듈 리스트
+
+	- 모듈 import: 어느곳에서나 import 가능
+	  - dir(__builtins__): 내장영역 이름이 저장되어 있는 리스트
+	  - dir(globals): 전역변수 리스트
+	  - import <모듈>
+	  - from <모듈> import <어트리뷰트>: <모듈명>.<어트리뷰트> 없이 <어트리뷰트> 로만 호출 가능하나 다른 이름과 충돌 시 side effect 가능
+	  - from <모듈> import *: 모든 어트리뷰트를 위의 방식과 같이 호출할 수 있도록 import 가능
+	  - import <모듈> as <별칭>: <별칭>.<어트리뷰트>로 호출 가능. 권장
+
+	- str 클래스
+	  - 파이썬 기본 내장 (빌트인이므로 import 불필요)
+	  - 유니코드의 경우 파이썬 2.* 에서는 \lib\site.py 파일을 아래와 같이 수정
+	    def setencoding():
+	      ...
+	      encoding = "cp949" # Default value set by
+	      _PyUnicode_Init()
+	        if 0:
+
+	- 정규표현식(re) (상세자료 확인)
+
+	- 시간모듈
+	- 날짜시간 모듈 (클래스)
+
+	- Method와 Function의 차이: Method는 class 내 종속, function은 글로벌
+
+  <파이썬 기본6>
+	- 출력
+	  - print() 함수를 사용
+	  - sys.stdout을 이용해 화면 출력 가능
+	- 입력
+	  - input() 함수 활용. 인자로 화면에 출력할 프롬프트 지정. 결과값은 ★문자열
+	- 파일 입출력
+	  - 파일객체 = open(file, mode)
+	    (mode)
+	    r: 읽기 모드 (기본값)
+	    w: 쓰기 모드
+	    a: 쓰기 + 이어쓰기 모드
+	    r+: 읽기 + 쓰기 모드
+	    b: 바이너리 모드
+	    t: 텍스트 모드
+	  - 파이썬 REPL
+	  f = open('text.txt', 'w')
+	  print("file write test...", file = f)
+	  f.close() # 반드시!
+	- close()를 까먹을 것 같다면 with 구문 사용 (자동으로 닫아줌)
+	  with open('test2.txt', 'w') as f:
+	    print("file write test...", file = f)
+	- 다른 방식
+	  with open('test3.txt', 'w') as f:
+	    f.write("file write test...")
+	- 파일명이 없는 경우는 만들어주지만, 디렉토리가 없는 경우는 안됨!
+	  os.mkdir("test1") 이후 진행필요
+	- 파일 읽기
+	  f1 = open('test1/test.txt')
+	  f1.read()
+	  f1.close()
+	- 닫혔는지 여부 확인
+	  f.closed
+	- IPython 에서는 !mkdir로 폴더 생성 가능
+
+  <Appendix - p.518 ~ >
+
+
+  4. NumPy 기본
+	- numpy와 pandas는 같이 씀
+	- ndarray
+	- ndarry 인덱싱, 슬라이싱
+	- 유니버설 함수
+	- 배열을 사용한 데이터 처리
+	- 통계, 정렬, 집합 함수 => pandas에서 많이 쓸 예정
+	- 난수 생성 함수
+	
+	- 다차원 배열 객체인 ndarray를 기본 데이터 저장 포맷으로 사용 => 빠른 속도
+	- NumPy의 여러 기능: 다차원 배열(ndarray) 뷰/인덱스 참조/브로드 캐스팅, 유니버셜 함수, 각종 함수 그룹(선현대수, 푸리에 변환, 난수생성, 수학함수, 통계함수, 집합함수, 데이터 입출력 함수 등)
+	                     다른 언어와의 인터페이스, 사용자 프로그램
+
+	- ndarray
+	  - 데이터, 메타데이터(차원 데이터 타입)으로 구성됨
+	  - 메모리에 빈틈없이 배치
+	  - shape 튜플과 dtype 객체를 가짐
+	  - array
+	  - asarray
+	  - arange
+	  - zeros, zeros_like
+	  - ones, ones_like
+	  - empty, empty_like
+	  - eye, identity
+	  - 자료형은 c나 fortran과 유사: 32, 64, 128....
+	  - astype으로 dtype 변경 가능 (기존타입과 같더라도 새 배열을 생성, 복사)
+	  - 스칼라: 상수값처럼 생각해도 됨 / 크기만 가지고 있는 값
+	  - 벡터: 수의 순서쌍이라고도 생각해도 됨 / 방향과 크기를 가지고 있는 값 (따라서 순서도 존재)
+		  차원이 다르면 벡터 간 연산이 불가능

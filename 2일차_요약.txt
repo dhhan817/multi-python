@@ -181,3 +181,51 @@
 	  - axis = 1: column 
 	  - axis = 0: row
 	  - arr[0][0] == arr[0,0]
+	  - 불리언 마스킹
+	    names = np.array(["pyo", "sunyoung", "psy", "pyo", "sunyoung", "sunny", "sunyoung"])
+	    data = np.random.randn (7,4)
+	    names == 'sunyoung' # 불리언 array 형태로 나옴
+	    data[names == 'sunyoung', :] # 불리언 마스킹으로 슬라이싱
+
+	- 유니버셜 함수 (universal function): ufunc
+	  - ndarray 안에 있는 데이터 원소별로 연산을 수행하는 함수
+	  - 고속화된 래퍼 함수
+	  - help(함수)의 경우 첫째줄에 Type: ufunc 라고 표시
+	  - 벡터화를 통한 데이터 처리, 고속화 가능
+	
+	- np.where (NumPy 삼항연산자 - c++의 (Expression)?:(When True):(When False))
+
+	- np.array.sort(): 정렬 메소드
+
+  5. pandas 시작하기
+	- PyData Stack의 가장 중간 단계 프레임워크
+	- numpy 기반
+	- 1차원 데이터 series, 2차원 데이터 dataframe, 3차원 데이터 panel로 이루어짐
+
+	- series: 동일한 데이터형의 복수개의 성분으로 구성된 1차원 array, 딕셔너리와 유사, 고정길이의 정렬된 사전형
+		  pd.Series()
+		  각 성분의 인덱스와 그 대응되는 값으로 구성
+	  - series.index: 인덱스만 추출
+	  - series.values: 값만 추출
+	  - sr.dtype: 데이터 타입 확인
+	  - sr.name: series 자체의 이름 지정
+	  - sr.index.name: 인덱스에 대한 이름 지정
+	  - NaN: 누락된 값 / NA
+	  - isnull / notnull: NaN을 탐지
+
+	- dataframe: 색인의 모양이 같은 series 객체를 담고 있는 파이썬 딕셔너리라고 볼 수 있다
+	             서로 다른 종류의 값을 담을 수 잇는 여러 column을 가짐
+	             2차원 array 형식
+		     pd.DataFrame() / 딕셔너리, 리스트 등 여러가지로 넣을 수 있음 (보통 딕셔너리로 함)
+	  - 행방향 인덱스: index
+	  - 열방향 인덱스: column
+	
+	- Index 객체: 축의 이름, 변경될 수 없음
+
+	- 인덱싱, 슬라이싱
+	  - 특정 column 호출
+	    df[<column index>] / df2.<column index>
+	    df[ [<column index1>, <column index2>] ]
+	    범위 인덱싱 (콜론 : 사용으로 columnar indexing 불가)
+	    단! row indexing 에서 범위 인덱싱을 쓸 수 있다
+	    row와 column 간에 편하게 하려면 함수를 쓰는 편이 좋다

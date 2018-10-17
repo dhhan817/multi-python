@@ -1,0 +1,27 @@
+pandas실습4
+
+data = [[9.9, 8.8], [np.nan, 6.6],[7.7, np.nan],  [0.99, 9.8]]
+df = pd.DataFrame(data, columns=["first", "second"], index=["a", "b", "c", "d"])
+
+df2 = pd.DataFrame(np.random.randn(6, 4),
+                   columns=["A", "B", "C", "D"],
+                   index=pd.date_range("20180220", periods=6))
+
+dates = df2.index
+# permutation 은 치환
+random_dates = np.random.permutation(dates)
+# 무작위로 섞어봄. index 순서와 컬럼의 순서가 불규칙하게 변함
+df2 = df2.reindex(index=random_dates, columns=["D", "B", "C", "A"])
+
+# 열 추가
+df2["E"] = np.random.randint(0, 6, size=6)
+df2["F"] = ["first", "second", "first", "third", "first", "second"]
+
+df3 = pd.DataFrame(np.random.randn(4, 3), columns=["b", "d", "e"],
+                   index=["Seoul", "Incheon", "Busan", "Daegu"])
+
+df4 = pd.DataFrame(np.random.rand(4, 3), columns=["b", "d", "e"],
+                   index=["Seoul", "Incheon", "Busan", "Daegu"])
+
+
+

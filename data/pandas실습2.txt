@@ -1,0 +1,14 @@
+pandas½Ç½À2
+
+data = {"names": ["sunyoung", "sunyoung", "sunyoung", "jungjae", "jungjae"],
+           "year": [2018, 2017, 2016, 2015, 2018],
+           "points": [2.9, 3.7, 4.6, 5.4, 6.9]}
+df = pd.DataFrame(data, columns=["year", "names", "points", "penalty"],
+                          index=["one", "two", "three", "four", "five"])
+
+
+val = pd.Series([-1.2, -1.5, -1.7], index=["two", "four", "five"])
+df["debt"] = val
+
+df["net_points"] = df["points"] - df["penalty"]
+df["high_points"] = df["net_points"] > 2.0

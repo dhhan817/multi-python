@@ -1,0 +1,7 @@
+pandas½Ç½À3
+
+df = pd.DataFrame(np.random.randn(5,4))
+df.columns = ["A", "B", "C", "D"]
+
+df.index = pd.date_range("20180327", periods=5)
+df["E"] = [9.9, np.nan, 10, 9.8, np.nan]

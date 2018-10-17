@@ -1,0 +1,18 @@
+matplotlib½Ç½À1
+sr = pd.Series(np.random.randn(10).cumsum(), index=np.arange(0, 100, 10))
+
+df = pd.DataFrame(np.random.randn(10, 4).cumsum(axis=0),
+                  columns=["A", "B", "C", "D"],
+                  index=np.arange(0, 100, 10))
+
+sr2 = pd.Series(np.random.rand(15), index=list("abcdefghijklmno"))
+
+df2 = pd.DataFrame(np.random.rand(6, 4), 
+                   index=["one", "two", "three", "four", "five", "six"],
+                   columns=pd.Index(["A", "B", "C", "D"], name="Number"))
+
+sr3 = pd.Series(np.random.normal(0, 1, size=200))
+
+x1 = np.random.normal(1, 1, size=(100, 1))
+x2 = np.random.normal(-2, 4, size=(100, 1))
+X = np.concatenate((x1, x2), axis=1)

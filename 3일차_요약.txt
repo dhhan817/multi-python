@@ -1,0 +1,56 @@
+2018.10.17
+
+[내용정리]
+
+  5. Pandas 시작하기 (계속)
+	- 인덱싱 (계속)
+	  - del: 열 삭제만 가능, 한번에 1개만 삭제 가능, rollback 불가능 (바로반영)
+	    ★ del high_points / del df.high_points 는 오류!
+	  - drop(): 행 삭제 가능, rollback 가능 (옵션으로 지정 가능)
+	  - 여러 열 인덱싱: [] 안에 컬럼 이름으로 구성된 리스트 제공
+	  - 특정열 선택, 값 대입도 가능
+	    e.g) df['penalty'] = 0.2
+		 df['penalty'] = [0.1,0.2,0.3,0.4,0.5]
+	  - 기존 column들을 바탕으로 연산하여 새 column을 만들 수도 있움
+	    e.g) df['net_points'] = df['points'] - df['penalty']
+		 df['high_points'] = df['net_points'] > 2.0
+	  - ★ df[] 방식은 column indexing에만 쓰자! (row indexing에서는 다른 방식)
+
+	  - ★ df 인덱싱을 위한 함수들을 기억하자!
+	    - 행/열 선택: loc / iloc
+	      - df.loc[<행이름>, <열이름>]: 행을 가져올 때도 Series의 형태로 가져옴
+				    실제 인덱스를 사용하여 행을 가져옴
+				    콜론(:)을 이용한 범위 지정 시에는 대괄호 불필요
+				    대괄호는 여러 index를 개별 지정시에만 필요
+		e.g) df.loc["two"]: 행 two를가져옴
+		     df.loc[<행시작이름>:<행종료이름>, <열시작이름>:<열종료이름>] ★이름으로 지정시 마지막 인덱스도 포함!!!!
+		     df.loc["two":"four", "points" ]
+		     df.loc[ [행1, 행2, 행3], [열1, 열2, 열3] ]
+		     df.loc[:, ["year", "names"]]
+	      - df.iloc[<행>, <열>]: numpy의 array 인덱싱 방식으로 행을 반환
+		e.g) df.iloc[<행시작>:<행종료>, <열시작>:<열종료>] ★ 숫자로 인덱싱 시 종료 인덱스는 제외됨!
+		     df.iloc[ [행1, 행2, 행3], [열1, 열2, 열3] ]
+
+	    - 삭제: del 키워드 / drop 메소드
+	      - del은 파이썬 키워드
+	      - drop(): 인덱스를 받고 axis = 0은 행, axis = 1은 열 기준
+			범위로 인덱싱은 불가능!
+	        e.g) df.drop(["Colorado", "Ohio"])
+		     df.drop(["two","four"], axis = 1)
+
+	    - 정렬: sort_index (인덱스별로 정렬) (numpy와 다르게 ascending = True/False 로 오름차순/내림차순 가능)
+		    sort_values (값별로 정렬)
+
+	  - pd.date_range(<날짜>, periods = <숫자>) : 시간형식 range
+
+	  - ★ df.dropna(how='any'/'all', inplace = False/True) : NaN 떨구기
+
+	  - ★ df.fillna(value=<숫자>, inplace = False/True) : NaN 채우기
+
+	  - df.isnull(): NaN 있는지 확인하여 불리언 마스크 형식으로 반환
+
+	- 통계 메소드
+	  - 분산
+	  - 공분산
+	  - 상관관계
+	  - 상관계수: pd.corr(), np.corrcoef()

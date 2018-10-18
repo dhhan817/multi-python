@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script>L_PREFER_CANVAS = false; L_NO_TOUCH = false; L_DISABLE_3D = false;</script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css" />
+    <link rel="stylesheet" href="https://rawgit.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css" />
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <style> #map_d2a12737b7ec4289873abb521e856782 {
+                position : relative;
+                width : 100.0%;
+                height: 100.0%;
+                left: 0.0%;
+                top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_d2a12737b7ec4289873abb521e856782" ></div>
+        
+</body>
+<script>    
+    
+
+            
+                var bounds = null;
+            
+
+            var map_d2a12737b7ec4289873abb521e856782 = L.map(
+                                  'map_d2a12737b7ec4289873abb521e856782',
+                                  {center: [37.566345,126.977893],
+                                  zoom: 17,
+                                  maxBounds: bounds,
+                                  layers: [],
+                                  worldCopyJump: false,
+                                  crs: L.CRS.EPSG3857
+                                 });
+            
+        
+    
+            var tile_layer_f549b4b043474e8fbe567f8c4b7b8190 = L.tileLayer(
+                'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                {
+  "attribution": null,
+  "detectRetina": false,
+  "maxZoom": 18,
+  "minZoom": 1,
+  "noWrap": false,
+  "subdomains": "abc"
+}
+                ).addTo(map_d2a12737b7ec4289873abb521e856782);
+        
+    
+
+            var marker_44152855e5ad41469466dbea260cd35b = L.marker(
+                [37.566345,126.977893],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_d2a12737b7ec4289873abb521e856782);
+            
+    
+
+                var icon_e3f86c54e588449eac6b9f2d73d92938 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'red',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_44152855e5ad41469466dbea260cd35b.setIcon(icon_e3f86c54e588449eac6b9f2d73d92938);
+            
+    
+            var popup_59b31ba2ab2a4c3bb3b40017b0363ad5 = L.popup({maxWidth: '300'});
+
+            
+                var html_fb4087df6b6f48d08422b2cc777ca724 = $('<div id="html_fb4087df6b6f48d08422b2cc777ca724" style="width: 100.0%; height: 100.0%;">서울특별시청</div>')[0];
+                popup_59b31ba2ab2a4c3bb3b40017b0363ad5.setContent(html_fb4087df6b6f48d08422b2cc777ca724);
+            
+
+            marker_44152855e5ad41469466dbea260cd35b.bindPopup(popup_59b31ba2ab2a4c3bb3b40017b0363ad5);
+
+            
+        
+    
+            var circle_marker_b398d812c20b4dcaae24950cba9a16dc = L.circleMarker(
+                [37.5658859,126.9754788],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#3186cc",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#3186cc",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 100,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_d2a12737b7ec4289873abb521e856782);
+            
+    
+            var popup_12cbd218c9144baebba32c7966556945 = L.popup({maxWidth: '300'});
+
+            
+                var html_35378068cc984e45b85834525a4a1bcf = $('<div id="html_35378068cc984e45b85834525a4a1bcf" style="width: 100.0%; height: 100.0%;">덕수궁</div>')[0];
+                popup_12cbd218c9144baebba32c7966556945.setContent(html_35378068cc984e45b85834525a4a1bcf);
+            
+
+            circle_marker_b398d812c20b4dcaae24950cba9a16dc.bindPopup(popup_12cbd218c9144baebba32c7966556945);
+
+            
+        
+</script>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Very Simple HTML Code </title>
+    </head>
+    <body>
+        <div>
+            <p class="inner-text first-item" id="first">
+                Hello Pandas~
+                <a href="http://pandas-docs.github.io/pandas-docs-travis/api.html" id="pandas">Pandas</a>
+            </p>
+            <p class="inner-text second-item">
+                Happy Data Science.
+                <a href="https://www.python.org" id="python">Python</a>
+            </p>
+        </div>
+        <p class="outer-text first-item" id="second">
+            <b>
+                Data Science is funny.
+            </b>
+        </p>
+        <p class="outer-text">
+            <b>
+                Data visualization is funny.
+            </b>
+        </p>
+    </body>
+</html>

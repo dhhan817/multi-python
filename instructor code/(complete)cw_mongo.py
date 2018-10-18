@@ -24,6 +24,20 @@ class StreamListener(tweepy.StreamListener):
         return False
  
     def on_data(self, data):
-        #TODO
+        try:
+            client = MongoClient(MONGO_HOST)     
+            db = client.twitterdb
+            datajson = json.loads(data)
+            created_at = datajson['created_at']          
+            print("Tweet collected at " + str(created_at))      
+            db.twitter_search.insert(datajson)
+        except Exception as e:
+           print(e)
  
-#TODO
+auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
+
+listener = StreamListener(api=tweepy.API(wait_on_rate_limit=True)) 
+streamer = tweepy.Stream(auth=auth, listener=listener)
+print("Tracking: " + str(WORDS))
+streamer.filter(track=WORDS)

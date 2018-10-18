@@ -67,3 +67,6 @@
 	- Open API --> OAuth 사용  ---------> OAuth1.0 a (Twitter, 1.0은 보안문제가 있어 이를 패치한 버전)
 		  └-> Oauth 사용X       └-> OAuth2.0 (Facebook)
                        (e.g. 구글 geocoding)
+
+	- 실습은 spyder로 진행할 예정 (cw1.py 와 cw_mongo.py 참고)
+	- https://developer.twitter.com 이쪽에서 App을 만들어 토큰키를 받아와야 한다

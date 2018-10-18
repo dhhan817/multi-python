@@ -1,0 +1,69 @@
+2018.10.18
+
+[내용정리]
+
+  7. 데이터 준비하기: 다듬기, 변형, 병합
+	- pandas.merge
+	  - 하나 이상의 키를 기준으로 DataFrame의 로우를 합침
+	  - SQL의 join 과 유사
+	  - 두 개의 DataFrame에 공통적으로 포함되어 있는 하나의 열을 기준으로 삼아, 해당 열의 값이 동일한 두 개의 행들을 하나의 행으로 합치는 방식
+	  - 열 기준으로 merging
+	  e.g) df1 = pd.DataFrame({'key':list('bbacaab'), 'data1': range(7)})
+	       df2 = pd.DataFrame({'key':list('abd'), 'data2': range(3)})
+	       pdf.merge(df1, df2, on = 'key')
+	  - 특별한 명시 없을 시, inner join이 기본
+	  - 두 객체에 공통되는 칼럼 이름이 없을 때 (같지만 컬럼 이름이 다를 때) 따로 지정해주면 됨
+	    (양쪽 다 명시해줘야함)
+	  e.g) pd.merge(df3, df4, left_on = 'lkey', right_on = 'rkey')
+	  - inner join: 교집합
+	  - left: 왼쪽 우선 외부조인. 왼쪽의 모든 row를 포함하는 결과
+	  - right: 오른쪽 우선 외부조인. 오른쪽의 모든 row를 포함하는 결과
+	  - outer: 완전 외부조인. 합집합 결과
+	  - 多대多 join은 데카르트 곱으로 반환
+	    (※ 데카드트 곱이란? (a,b,c)와 (a,b)의 데카르트 곱은 ( (a,a), (a,b), (b,a), (b,b), (c,a), (c,b) ) )
+	  - 여러개의 키를 기준으로도 병합 가능 (리스트로 넘김)
+
+	- pandas.concat
+	  - 하나의 축을 따라 객체를 이어붙임
+	  - 단순히 하나의 DataFrame에 다른 DataFrame을 연속적으로 붙이는 방식
+	  - numpy에도 concatenate 존재
+
+	- 중복 제거하기
+	  - duplicated 메소드: 각 로우가 중복인지 아닌지를 알려주는 불리언 Series 객체 반환
+	  - drop_duplicates 메소드: duplicated 배열이 false인 dataframe 반환
+
+	- map 메소드
+
+	- Discretization and binning
+
+
+  실습1. 서울시 구별 CCTV 현황 (Day-4.ipynb Case Study1)
+
+
+  참고. 크롤링과 스크래핑
+	- mongodb 설치
+	- nosqlbooster를 mongodb GUI로 사용
+	- 설치 후 설치 디렉토리로 이동
+	- 서버: mongod
+	- 다른 cmd 창에서 클라이언트 mongo 접속
+	- 클라이언트 창에서..
+		- show dbs
+		- use twitterdb
+	- 크롤링하여 집어넣을 예정
+	- 데이터는 c:\data\db 로 들어감
+
+	- 크롤러, 스파이더
+
+	- 스크래핑: 데이터를 수집하는 행위
+	            BeautifulSoup (HTML과 XML을 파싱하는 데에 사용되는 파이썬 라이브러리)
+	- 크롤링: 조직적 자동화된 방법으로 월드와이드웹을 탐색하는 것
+		  selenium / beautifulsoup은 사용자 행동을 특정해서 데이터를 가져올 수 없고, 동적으로 추가하려면 selenium이 필요
+	- 파싱: 문장 혹은 무서를 구성 성분으로 분해하고 위계관계를 분석하여 문장의 구조를 결정하는 것
+
+	- selenium 사용시에는 모듈 설치 + 크롭 웹 드라이버를 다운받아야 함 (브라우저에 맞게 다운)
+
+	- REST: 서버는 xml 문서 형태로 결과 값을 반환하는 방식을 많이 사용
+
+	- Open API --> OAuth 사용  ---------> OAuth1.0 a (Twitter, 1.0은 보안문제가 있어 이를 패치한 버전)
+		  └-> Oauth 사용X       └-> OAuth2.0 (Facebook)
+                       (e.g. 구글 geocoding)

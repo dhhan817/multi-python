@@ -67,3 +67,13 @@
 
   2. »ç·Ê ¼Ò°³
 	- ¿©·¯ »ç·Êµé
+
+
+[ÃÑÁ¤¸®]
+	- ÆÄÀÌ½ã ±âº»
+	- numpy
+	- pandas
+	- matplotlib
+	- seaborn
+	- folium
+	- data: file / OpenAPI (OAuth1.0 a/2.0, Others) / DB

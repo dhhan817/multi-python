@@ -1,0 +1,55 @@
+2018.10.19
+
+[내용정리]
+
+  참고. 크롤링과 스크래핑 (계속)
+	- Open API --> OAuth 사용  ---------> OAuth1.0 a (Twitter, 1.0은 보안문제가 있어 이를 패치한 버전)
+		  └-> Oauth 사용X       └-> OAuth2.0 (Facebook)
+                       (e.g. 구글 geocoding)
+
+  9. 데이터 수집과 그룹 연산
+	- ★ GroupBy
+	  - 분리 ~ 적용 ~ 결합 (split ~ apply ~ combine)의 연산
+	    - 그룹화하고자하는 열의 값을 기준으로 데이터를 split
+	    - apply에 주로 통계 함수를 적용
+	    - 산출한 결과를 하나로 combine하여 표시
+	  - groupby()
+	    - df.groupby('key1').mean() 과 같은 방식
+	    - groupby() 객체는 이터레이션을 지원
+	    - 그룹 이름과 해당 데이터 묶음을 튜플로 반환
+	    - ★ 딕셔너리 기준으로 groupby도 가능
+	      e.g) people = pd.DataFrame(~~~, columns = ['a','b','c','d','e'],~~~)
+	           mapping = {'a': 'red', 'b': 'red', ~~~}
+		   by_column = people.groupby(mapping, axis = 1)
+		   by_column.sum()
+	  - qunatile()
+	  - ★ agg(): 사용자정의함수 / 기존통계함수
+	           기존통계함수는 " " 안에 넣어야함
+		   다만, 기존통계함수는 agg없이 그냥 바로 쓰면 되므로, 보통 사용자정의함수를 씀
+	    e.g) grouped.agg(peak_to_peak)
+                 (peak_to_peak은 앞에서 정의된 함수)
+
+  7. 데이터 준비하기: 다듬기, 변형, 병합 (계속)
+	- 재형성과 피벗
+	- ★ 재형성(reshaping, 피벗 연산)
+	  - 표형식의 데이터를 재배치하는 다양한 기본 연산
+	  - 계층적 색인으로 재형성하기
+	    - stack: 데이터의 칼럼을 로우로 피벗 또는 회전
+	    - unstack: 로우를 칼럼으로 피벗
+	    - 보통 가장 안쪽에 있는 것부터 꺼내는데, 레벨 이름이나 숫자를 전달해서 꺼내올 단계를 지정할 수 있음
+	      레벨이름이 0이면 첫번째 index를 컬럼으로 (가장 바깥쪽)
+	      레벨이름이 1이면 두번째 index를 컬럼으로 (가장 바깥의 그다음번)
+	      또는, 선택한 이름을 컬럼으로
+	- pivot()
+	- set_index(): 인덱스 재배치
+	- ★ pivot_table(): groupby + pivot
+	                    pivot 함수와 groupby 함수의 중간 성격을 가짐
+	     - data: 분석할 데이터프레임 (메소드 호출일 때 불필요)
+	     - values: 분석할 열
+	     - index: 행 인덱스 (리스트도 가능)
+	     - columns: 열 인덱스 (리스트도 가능)
+	     - aggfunc: 분석 메소드
+	     - fill_value: NaN 대체 값
+	     - margins: 오른쪽과 아래에 합계를 붙일지 여부
+	     - margins_name: 합계 열(행)의 이름
+	     e.g) pd.DataFrame.pivot_table() 로도 가능

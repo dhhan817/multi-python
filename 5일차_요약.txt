@@ -53,3 +53,12 @@
 	     - margins: 오른쪽과 아래에 합계를 붙일지 여부
 	     - margins_name: 합계 열(행)의 이름
 	     e.g) pd.DataFrame.pivot_table() 로도 가능
+
+  참고. 씨본(Seaborn)과 폴리움(Folium)
+	- matplotlib은 굉장히 유용하지만 조금 구식 스타일...
+	- seaborn은 matplotlib 위에서 사용됨
+	- seaborn에서 legend는 hue로 명명됨 (이름만 다름)
+
+	- Folium: 지도 시각화 도구 / 위도와 경도 정보를 주면 지도를 그려줌
+
+  실습. 구글 Geocoding API 실습

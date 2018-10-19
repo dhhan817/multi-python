@@ -1,0 +1,47 @@
+실습4_서울시범죄현황분석_stduent
+
+crime_anal_police = pd.read_csv('../data/crime_in_Seoul.csv', thousands=',', 
+                                encoding='euc-kr')
+
+import googlemaps
+
+ # 자신의 key를 사용합니다.
+gmaps_key = "..."
+gmaps = googlemaps.Client(key=gmaps_key)
+
+gmaps.geocode('서울중부경찰서', language='ko')
+
+crime_anal_police.to_csv('../data/crime_in_Seoul_include_gu_name.csv',
+                         sep=',', encoding='utf-8')
+
+crime_anal = pd.pivot_table(crime_anal_raw, index='구별', aggfunc=np.sum)
+
+crime_anal_norm_sort = crime_anal_norm.sort_values(by='검거', ascending=False)
+
+plt.figure(figsize = (10,10))
+sns.heatmap(crime_anal_norm_sort[target_col], annot=True, fmt='f', linewidths=.5,
+                       cmap='RdPu')
+plt.title('범죄비율 (정규화된 발생 건수로 정렬)')
+plt.show()
+
+
+crime_anal_norm.to_csv('../data/crime_in_Seoul_final.csv', sep=',', 
+                       encoding='utf-8')
+
+
+
+map = folium.Map(location=[37.5502, 126.982], zoom_start=11, 
+                 tiles='Stamen Toner')
+
+
+
+    folium.Marker([crime_anal_raw['lat'][n], 
+                   crime_anal_raw['lng'][n]]).add_to(map)
+
+
+
+    folium.CircleMarker([crime_anal_raw['lat'][n], crime_anal_raw['lng'][n]], 
+                        radius = crime_anal_raw['검거'][n]*10, 
+                        color='#3186cc', fill_color='#3186cc', fill=True).add_to(map)
+
+
